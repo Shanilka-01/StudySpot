@@ -1,0 +1,12 @@
+# local config with real database passwords
+config/db.local.php
+
+# editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# logs and temp
+*.log
+/tmp/

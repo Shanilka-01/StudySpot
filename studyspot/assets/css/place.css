@@ -1,0 +1,73 @@
+/* place.css – place.php. Owner: Member 3 */
+
+.place { padding-top: 24px; padding-bottom: 72px; max-width: 1120px; }
+
+.breadcrumb { display: flex; gap: 8px; flex-wrap: wrap; font-weight: 600; font-size: 15px; margin-bottom: 18px; }
+.breadcrumb a:hover { color: var(--brand); text-decoration: underline; }
+
+.place-top { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 28px; align-items: stretch; }
+
+/* Gallery */
+.gallery-main { border-radius: 14px; overflow: hidden; background: #e5e7eb; aspect-ratio: 16 / 8; }
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumbs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 12px; }
+.gallery-thumbs .thumb { display: block; width: 100%; padding: 0; border: 2px solid transparent; border-radius: 10px; overflow: hidden; background: none; aspect-ratio: 2 / 1; }
+.gallery-thumbs .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumbs .thumb:hover { border-color: #b7d5c3; }
+.gallery-thumbs .thumb.is-active { border-color: var(--brand); }
+
+/* Info card */
+.info-card { padding: 26px 26px 24px; display: flex; flex-direction: column; border-radius: 14px; }
+.info-card h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+.info-list { display: flex; flex-direction: column; gap: 18px; margin: 26px 0 auto; font-weight: 600; font-size: 15px; }
+.info-list li { display: flex; align-items: center; gap: 14px; }
+.info-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0 14px; }
+.info-actions form { display: contents; }
+.info-actions .btn { padding: 12px; }
+.info-actions .heart { color: var(--heart); }
+.info-actions .is-saved { border-color: #ffc2cd; background: #fff5f7; }
+.book-btn { padding: 14px; }
+
+/* Facts */
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 24px; border-radius: 14px; }
+.fact { padding: 18px 26px 20px; }
+.fact + .fact { border-left: 1px solid var(--line); }
+.fact h2, .cost h2, .facilities h2 { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; }
+.fact-main { margin-top: 12px; font-weight: 700; font-size: 17px; }
+.fact-sub { font-weight: 600; font-size: 14px; color: #374151; margin-top: 2px; }
+.fact-main, .fact-sub { padding-left: 26px; }
+
+.cost-fac { display: grid; grid-template-columns: 300px 1fr; gap: 20px; margin-top: 18px; }
+.cost, .facilities { padding: 18px 26px 22px; border-radius: 14px; }
+.coin { color: #d3a100; }
+.facilities h2 { margin-bottom: 18px; }
+.facilities ul { display: flex; flex-wrap: wrap; gap: 14px 34px; }
+.facilities li { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; }
+.facilities li .icon { color: var(--brand); }
+
+.about { margin-top: 30px; }
+.about h2, .reviews h2 { font-size: 18px; font-weight: 700; }
+.about p { margin-top: 8px; padding-left: 4px; font-weight: 500; max-width: 900px; color: #1f2937; line-height: 1.65; }
+
+.reviews { margin-top: 28px; }
+.reviews-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 12px; flex-wrap: wrap; }
+.reviews-links { display: flex; align-items: center; gap: 18px; }
+.see-all { background: none; border: 0; color: #13a95b; font-weight: 700; font-size: 15px; padding: 4px; }
+.see-all:hover { text-decoration: underline; }
+.review { padding: 14px 18px 16px; margin-bottom: 14px; border-radius: 10px; }
+.review-head { display: flex; align-items: flex-start; gap: 12px; }
+.review-head > div { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 12px; }
+.review-head .when { flex-basis: 100%; font-weight: 600; font-size: 14px; }
+.review p { margin-top: 8px; font-weight: 500; }
+.js .review.extra { display: none; }
+.js .reviews.show-all .review.extra { display: block; }
+
+@media (max-width: 960px) {
+    .place-top { grid-template-columns: 1fr; }
+    .cost-fac { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+    .facts { grid-template-columns: 1fr; }
+    .fact + .fact { border-left: 0; border-top: 1px solid var(--line); }
+    .gallery-thumbs { gap: 8px; }
+}
