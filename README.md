@@ -14,7 +14,7 @@ You need **XAMPP** (or WAMP / MAMP). It gives you Apache, PHP and MySQL together
 2. Start **Apache** and **MySQL** in the XAMPP Control Panel.
 3. Open <http://localhost/phpmyadmin> → **Import** → choose `database/studyspot.sql` → **Go**.
    That creates the `studyspot` database with sample places, reviews and bookings.
-4. Open `http://localhost/<your-folder-name>/`, for example <http://localhost/StudytSpot/>.
+4. Open `http://localhost/<your-folder-name>/`, for example <http://localhost/StudySpot/>.
 
 Demo login: **sahan@example.com** / **123456**
 
