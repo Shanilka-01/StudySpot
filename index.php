@@ -22,29 +22,29 @@ require __DIR__ . '/includes/header.php';
         <p class="lead">Discover quiet libraries, cozy cafés, co-working spaces and university areas
             to help you focus and get more done.</p>
 
-        <form class="hero__search" action="<?= url('pages/explore.php') ?>" method="get">
+        <form class="hero__search" action="explore.php" method="get">
             <input type="search" name="q" placeholder="Search study spaces, e.g. library, cafe...">
             <button class="btn" type="submit">Search</button>
-            <button class="btn btn--ghost" type="button" id="useLocation" data-map-url="<?= url('pages/map.php') ?>">&#10148; Use My Location</button>
+            <button class="btn btn--ghost" type="button" id="useLocation">&#10148; Use My Location</button>
         </form>
 
         <div class="chips">
-            <a class="chip" href="<?= url('pages/explore.php') ?>?type[]=library">&#128218; Libraries</a>
-            <a class="chip" href="<?= url('pages/explore.php') ?>?type[]=cafe">&#9749; Cafés</a>
-            <a class="chip" href="<?= url('pages/explore.php') ?>?type[]=coworking">&#128188; Co-working Spaces</a>
-            <a class="chip" href="<?= url('pages/explore.php') ?>?type[]=university">&#127891; University Areas</a>
+            <a class="chip" href="explore.php?type[]=library">&#128218; Libraries</a>
+            <a class="chip" href="explore.php?type[]=cafe">&#9749; Cafés</a>
+            <a class="chip" href="explore.php?type[]=coworking">&#128188; Co-working Spaces</a>
+            <a class="chip" href="explore.php?type[]=university">&#127891; University Areas</a>
         </div>
     </div>
 
     <div class="hero__art">
-        <img src="<?= asset('img/hero.jpg') ?>" alt="A student studying at a desk by a window">
+        <img src="assets/img/hero.jpg" alt="A student studying at a desk by a window">
     </div>
 </section>
 
 <section class="container">
     <div class="section-head">
         <h2>Popular Study Spaces</h2>
-        <a href="<?= url('pages/explore.php') ?>">View All &rarr;</a>
+        <a href="explore.php">View All &rarr;</a>
     </div>
 
     <div class="grid-4">

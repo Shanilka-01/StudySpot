@@ -40,7 +40,7 @@ if (geoBtn && navigator.geolocation) {
     geoBtn.textContent = 'Finding you...';
     navigator.geolocation.getCurrentPosition(
       function (pos) {
-        window.location = geoBtn.dataset.mapUrl + '?lat=' + pos.coords.latitude.toFixed(5) +
+        window.location = 'map.php?lat=' + pos.coords.latitude.toFixed(5) +
                           '&lng=' + pos.coords.longitude.toFixed(5);
       },
       function () {

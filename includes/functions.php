@@ -4,49 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once __DIR__ . '/../config/db.php';
 
-/* ------------------------------------------------------------------
-   URLs
-   BASE_URL is worked out from the running script, so the site works in
-   any folder name (StudytSpot, StudySpot, the htdocs root ...) and from
-   any sub folder (pages/, admin/).
-   ------------------------------------------------------------------ */
-if (!defined('BASE_URL')) {
-    $scriptDir = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/');
-    define('BASE_URL', preg_replace('#/(pages|admin)$#', '', $scriptDir));
-}
-
-/** url('pages/explore.php')  ->  /StudytSpot/pages/explore.php */
-function url(string $path = ''): string
-{
-    return BASE_URL . '/' . ltrim($path, '/');
-}
-
-/** asset('css/style.css')  ->  /StudytSpot/assets/css/style.css */
-function asset(string $path): string
-{
-    return url('assets/' . ltrim($path, '/'));
-}
-
-/** Send the browser to another page of this site, then stop. */
-function redirect(string $path)
-{
-    header('Location: ' . url($path));
-    exit;
-}
-
-/** Only allow "go back to this page" targets that stay inside this site. */
-function safe_redirect_target(?string $target): string
-{
-    $default = url('index.php');
-    if (!$target || $target[0] !== '/' || str_starts_with($target, '//') || str_contains($target, '\\')) {
-        return $default;
-    }
-    if (BASE_URL !== '' && !str_starts_with($target, BASE_URL . '/')) {
-        return $default;
-    }
-    return $target;
-}
-
 /** Escape output. Use on every echo that prints data from the database or a form. */
 function e(?string $value): string
 {
@@ -67,7 +24,9 @@ function current_user_id(): ?int
 function require_login(): void
 {
     if (!is_logged_in()) {
-        redirect('pages/login.php?redirect=' . urlencode($_SERVER['REQUEST_URI'] ?? url('index.php')));
+        $back = urlencode(basename($_SERVER['REQUEST_URI'] ?? 'index.php'));
+        header('Location: login.php?redirect=' . $back);
+        exit;
     }
 }
 
@@ -112,9 +71,9 @@ function is_favorite(PDO $pdo, int $placeId): bool
 function place_image(?string $file): string
 {
     if ($file && file_exists(__DIR__ . '/../assets/img/' . $file)) {
-        return asset('img/' . $file);
+        return 'assets/img/' . $file;
     }
-    return asset('img/placeholder.svg');
+    return 'assets/img/placeholder.svg';
 }
 
 function type_label(string $type): string
@@ -173,7 +132,7 @@ function render_place_card(PDO $pdo, array $place): void
 {
     $rating = place_rating($pdo, (int)$place['id']);
     ?>
-    <a class="place-card" href="<?= url('pages/place.php') ?>?id=<?= (int)$place['id'] ?>">
+    <a class="place-card" href="place.php?id=<?= (int)$place['id'] ?>">
         <img src="<?= e(place_image($place['cover_image'])) ?>" alt="<?= e($place['name']) ?>">
         <div class="place-card__body">
             <p class="place-card__city">&#128205; <?= e($place['city']) ?></p>

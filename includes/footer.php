@@ -8,20 +8,20 @@
         </div>
         <div>
             <h4>Explore</h4>
-            <a href="<?= url('pages/explore.php') ?>">All study spaces</a>
-            <a href="<?= url('pages/map.php') ?>">Map view</a>
-            <a href="<?= url('pages/my-bookings.php') ?>">My bookings</a>
+            <a href="explore.php">All study spaces</a>
+            <a href="map.php">Map view</a>
+            <a href="my-bookings.php">My bookings</a>
         </div>
         <div>
             <h4>Support</h4>
-            <a href="<?= url('pages/help.php') ?>">Help &amp; FAQ</a>
-            <a href="<?= url('pages/about.php') ?>">About us</a>
+            <a href="help.php">Help &amp; FAQ</a>
+            <a href="about.php">About us</a>
             <a href="mailto:support@studyspot.lk">support@studyspot.lk</a>
         </div>
     </div>
     <p class="site-footer__bottom">&copy; <?= date('Y') ?> StudySpot &middot; Web Architecture Group Project</p>
 </footer>
 
-<script src="<?= asset('js/main.js') ?>"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
